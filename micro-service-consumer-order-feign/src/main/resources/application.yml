@@ -1,0 +1,37 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-order-service
+
+eureka:
+  instance:
+    instance-id: order-80
+    #访问路径可以显示IP地址
+    prefer-ip-address: true
+  client:
+    # 这里只把feign做客户端用，不注册进eureka
+    register-with-eureka: false
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+#      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+
+logging:
+  level:
+    micro.service.cloud.feign.PaymentOpenFeign: debug
+
+#设置feign客户端超时时间（OpenFeign默认支持ribbon）
+ribbon:
+  #指的是建立连接所用的时间，适用于网络状况正常的情况下，两端连接所用的时间
+  ConnectTimeout: 5000
+  #指的是建立连接后从服务器读取到可用资源所用的时间
+  ReadTimeout: 5000
+#feign:
+#  client:
+#    config:
+#      default:
+#        connectTimeout: 10000 # Feign的连接建立超时时间，默认为10秒
+#        readTimeout: 60000 # Feign的请求处理超时时间，默认为60
+#        retryer: feign.Retryer.Default # Feign使用默认的超时配置，在该类源码中可见，默认单次请

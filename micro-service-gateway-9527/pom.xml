@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>micro-service-base-2020</artifactId>
+        <groupId>micro.service.cloud</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>micro-service-gateway-9527</artifactId>
+    <description>微服务网关：Spring Cloud Gateway</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>micro.service.cloud</groupId>
+            <artifactId>micro-service-commons-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- spring cloud gateway -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+        <!--
+            gateway无需web和actuator
+            引入 spring-cloud-starter-gateway 依赖，需要移除 spring-boot-starter-web 和 spring-boot-starter-actuator 这两个依赖，
+            否则会报错：'org.springframework.http.codec.ServerCodecConfigurer' that could not be found.
+         -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
