@@ -43,6 +43,9 @@
         <module>micro-service-alibaba-seata-order</module>
         <module>micro-service-alibaba-seata-storage</module>
         <module>micro-service-alibaba-seata-account</module>
+        <module>micro-service-Oauth-center</module>
+        <module>micro-service-security-client-A</module>
+        <module>micro-service-security-client-B</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
@@ -71,7 +74,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.2.2.RELEASE</version>
+                <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -79,7 +82,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR1</version>
+                <version>${spring.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -87,7 +90,7 @@
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.1.0.RELEASE</version>
+                <version>${spring.cloud.alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -124,6 +127,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
                 <configuration>
                     <fork>true</fork>
                     <addResources>true</addResources>
@@ -131,6 +135,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
