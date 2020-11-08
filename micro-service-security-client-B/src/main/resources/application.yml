@@ -1,15 +1,29 @@
 server:
-  port: 8081
+  port: 8082
   servlet:
-    context-path: /clientA
-
+    context-path: /clientB
+    session:
+      cookie:
+        name: CLIENT_A_SESSION
+spring:
+  application:
+    name: security-client-B
 security:
   oauth2:
     client:
-      client-id: client-A
-      client-secret: client-secret-A
-      user-authorization-uri: http://127.0.0.1:8080/sso/oauth/authorize
-      access-token-uri: http://127.0.0.1:8080/sso/oauth/token
+      client-id: client-B
+      client-secret: client-secret-B
+      scope: all
+      access-token-uri: http://localhost:8080/sso/oauth/token
+      user-authorization-uri: http://localhost:8080/sso/oauth/authorize
     resource:
       jwt:
-        key-uri: http://127.0.0.1:8080/sso/oauth/token_key
+        key-uri: http://localhost:8080/sso/oauth/token_key
+      user-info-uri: http://localhost:8080/sso/user
+      token-info-uri: http://localhost:8080/sso/oauth/check_token
+    authorization:
+      check-token-access: http://localhost:8080/sso/oauth/check_token
+
+logging:
+  level:
+    org.springframework.security: debug

@@ -3,6 +3,7 @@ package micro.service.cloud.entity;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @description:
@@ -16,9 +17,6 @@ public class SsoUser implements Serializable {
 
     private String userName;
     private String password;
-    private boolean accountNonExpired = true;
-    private boolean accountNonLocked= true;
-    private boolean credentialsNonExpired= true;
-    private boolean enabled= true;
+    private List<String> permissions;
 
 }
